@@ -6,7 +6,7 @@ interface CodeBlockProps {
 }
 
 function CodeBlock({ language, code }: CodeBlockProps) {
-  const languageToUse = (language ?? 'typescript') as Language
+  const languageToUse = (language ?? 'tsx') as Language
 
   return (
     <div className={` not-prose`}>
