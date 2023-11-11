@@ -14,18 +14,26 @@ function BlockSerialiser({ blocks }: Props) {
   if (!blocks) return null
   const className = 'container max-w-[64rem]'
   return (
-    <div>
+    <div className="flex flex-col gap-16">
       {blocks?.map((block, index) => {
         switch (block.blockType) {
           case 'textBlock':
             return (
-              <div key={block.id} data-blockType={block.blockType} className={`${className}`}>
+              <div
+                key={block.id}
+                data-blocktype={block.blockType}
+                className={`${className} w-full`}
+              >
                 <RichText content={block.content} />
               </div>
             )
           case 'testimonialBlock':
             return (
-              <div key={block.id} data-blockType={block.blockType} className={`${className}`}>
+              <div
+                key={block.id}
+                data-blocktype={block.blockType}
+                className={`${className} w-full`}
+              >
                 <Testimonial data={block} />
               </div>
             )

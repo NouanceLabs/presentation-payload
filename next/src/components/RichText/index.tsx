@@ -8,7 +8,7 @@ const RichText: React.FC<{ className?: string; content: any }> = ({ className, c
   }
 
   return (
-    <div className={['typography prose', className].filter(Boolean).join(' ')}>
+    <div className={['typography prose max-w-none', className].filter(Boolean).join(' ')}>
       {content &&
         !Array.isArray(content) &&
         typeof content === 'object' &&
