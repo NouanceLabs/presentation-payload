@@ -18,18 +18,20 @@ import Code from './blocks/Code'
 
 import { Pages } from './collections/Pages'
 import { Users } from './collections/Users'
-import BeforeLogin from './components/BeforeLogin'
 import { MainMenu } from './globals/MainMenu'
 import { Home } from './globals/Home'
+
 import { customGraphQLQueries } from './graphql/customGraphQLQueries'
 import rest from './REST'
+
+import NavButton from './components/NavButton'
 
 export default buildConfig({
   collections: [Pages, Users],
   admin: {
     bundler: webpackBundler(), // bundler-config
     components: {
-      beforeLogin: [BeforeLogin],
+      afterNavLinks: [NavButton],
     },
     livePreview: {
       breakpoints: [

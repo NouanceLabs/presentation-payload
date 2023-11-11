@@ -3,12 +3,13 @@ import type { CollectionConfig } from 'payload/types'
 import RichTextSimple from '../../fields/RichTextSimple'
 import { loggedIn } from './access/loggedIn'
 import formatSlug from './hooks/formatSlug'
+import CustomUI from '../../components/CustomUI'
 
 export const Pages: CollectionConfig = {
   slug: 'pages',
   admin: {
     useAsTitle: 'title',
-    defaultColumns: ['title', 'slug', 'updatedAt'],
+    defaultColumns: ['title', 'slug', 'likes', 'updatedAt'],
     livePreview: {
       url: ({ data }) => `${process.env.PAYLOAD_PUBLIC_SITE_URL}/${data.slug}`,
     },
@@ -50,6 +51,16 @@ export const Pages: CollectionConfig = {
         read: () => true,
         update: () => false,
         create: () => false,
+      },
+    },
+    {
+      name: 'customUI',
+      type: 'ui',
+      admin: {
+        position: 'sidebar',
+        components: {
+          Field: CustomUI,
+        },
       },
     },
     RichTextSimple,
