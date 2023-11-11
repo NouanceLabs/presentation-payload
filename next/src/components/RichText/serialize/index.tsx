@@ -7,6 +7,8 @@ import escapeHTML from 'escape-html'
 import Link from 'next/link'
 import React, { Fragment } from 'react'
 import CodeBlock from '@/components/blocks/Code'
+import TestimonialBlock from '@/components/blocks/Testimonial'
+
 import {
   IS_BOLD,
   IS_CODE,
@@ -193,6 +195,8 @@ export function serializeLexical({ nodes }: Props): JSX.Element {
               case 'codeBlock':
                 // @ts-expect-error
                 return <CodeBlock key={index} code={_node.fields.data.code} />
+              case 'testimonialBlock':
+                return <TestimonialBlock key={index} data={_node.fields.data} />
               default:
                 return null
             }

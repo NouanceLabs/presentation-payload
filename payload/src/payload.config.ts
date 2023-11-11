@@ -15,6 +15,7 @@ import {
 import path from 'path'
 import { buildConfig } from 'payload/config'
 import Code from './blocks/Code'
+import Testimonial from './blocks/Testimonial'
 
 import { Pages } from './collections/Pages'
 import { Users } from './collections/Users'
@@ -60,7 +61,7 @@ export default buildConfig({
       /* LinkFeature({}), */
       OrderedListFeature(),
       UnoderedListFeature(),
-      BlocksFeature({ blocks: [Code] }),
+      BlocksFeature({ blocks: [Code, Testimonial] }),
     ],
   }),
   db: postgresAdapter({
